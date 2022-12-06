@@ -1,3 +1,11 @@
+# MINI PROJECT 3
+#  
+# visit this application's domain:
+# https://maddieh.dynv6.net
+
+# ------------------------------------------------------------------------------------------------------------------------
+# IMPORT STATEMENTS 
+
 from flask import Flask, render_template, request
 from werkzeug.utils import secure_filename
 import requests
@@ -5,6 +13,9 @@ import pandas as pd
 from flask_cors import CORS
 import sqlite3
 import os
+
+# ------------------------------------------------------------------------------------------------------------------------
+#  FLASK CONFIGURATION/SETUP
 
 # this function can be used to create the product sqlite database if necessary
 def createdb():
@@ -100,6 +111,7 @@ def list():
 
     return render_template("postdata.html", df=df, title="Retrieval from Database")
 
-
+# the line below is commented out to prevent automatic server running when imported 
+# this ensures that gunicorn will behave as desired and no errors ('port already in use') will occur
 #app.run(debug=True, port=8080) 
 
