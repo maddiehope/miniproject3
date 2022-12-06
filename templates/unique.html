@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="/error" method="post">
+
+    <h3> There was an Integrity Error with one of your inputs.</h3>
+    <body>Please try again. Make sure all input boxes are <b>filled correctly</b> and your product code is <b>unique</b>.</body><br>
+
+    <br>
+    <a href = "/">Go back to home page</a>
+
+</form>
+
+{% endblock content %}

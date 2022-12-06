@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="/data" method="post">
+
+    <h3>Please select</h3>
+    <!-- both of these references are linked to different routes in the Flask app, 
+         one for entering data and one for retireving -->
+    <a href="{{url_for('entryform')}}">Product Data Entry</a><br>
+    <br><a href="{{url_for('dataretrieval')}}">Retrieve Data From Database</a>
+
+</form>
+{% endblock content %}

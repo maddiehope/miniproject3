@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<form action= "/list" method="post" enctype="multipart/form-data">
+
+    <h3>Retrieve Data From Database</h3>
+
+    Select category to retieve from database: <input name="category" type="text" placeholder="leave blank to display all"/><br>
+    <input type="submit" value="Sumbit Request"/><br>
+
+    <br>
+    <a href = "/">Go back to home page</a>
+
+</form>
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- the action parameters means that the data grabbed from this form will be used in the route '/postentry', which adds it to the product database -->
+<form action="/entryprocessing" method="post">
+
+    <h3>Product Data Entry</h3>
+
+        <!-- the 'required' tag ensures that all fields are filled before the form can be sumbitted -->
+        Product Category: <input name="category" type="text" required/><br>
+        Product Description: <input name="description" type="text" autocomplete="off" required /><br>
+        Price: <input name="price" type="number" required/><br>
+        Product Code: <input name="code" type="text" autocomplete="off" required/><br>
+
+        <input type="submit" value="Sumbit Entry"/><br>
+
+        <br>
+        <a href = "/">Go back to home page</a>
+
+</form>
+{% endblock content %}

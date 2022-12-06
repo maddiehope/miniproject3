@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="/list" method="post" enctype="multipart/form-data">
+    
+{{ df.to_html(classes="table table-striped") | safe}}
+
+<!-- instead of the 'OK' button, I opted for this home page link to keep my site more uniform (since all other pages have this same link) -->
+<br>
+<a href = "/">Go back to home page</a>
+
+</form>
+
+{% endblock content %}
