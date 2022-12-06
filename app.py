@@ -101,5 +101,5 @@ def list():
     return render_template("postdata.html", df=df, title="Retrieval from Database")
 
 
-app.run(debug=True, port=8080) 
+#app.run(debug=True, port=8080) 
 
