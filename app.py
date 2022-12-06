@@ -6,20 +6,17 @@ from flask_cors import CORS
 import sqlite3
 import os
 
-miniproject3 = os.path.dirname(os.path.abspath(__file__))
-my_file = os.path.join(miniproject3, 'productdb.db')
-
 # this function can be used to create the product sqlite database if necessary
 def createdb():
-    with sqlite3.connect("miniproject3/productdb.db") as con:
-        with open("miniproject3/initscript.sql") as f:
+    with sqlite3.connect("productdb.db") as con:
+        with open("initscript.sql") as f:
             con.executescript(f.read())
 
 # Here, we check if the product database already exists 
 # If it does, we will continue our app per usual, adding new data to the exsisting db
 # If it does not, we will create it for the first time
 # We don't want to create a new database every single time becuase the whole purpose of this program is to be able to add to and retrieve data from an existing db 
-if not os.path.exists('miniproject3/productdb.db'):
+if not os.path.exists('productdb.db'):
     createdb()
 
 # creating the Flask 
@@ -62,7 +59,7 @@ def postentry():
         to_insert = [(category, description, price, code)]
 
         # connecting to our database to execute the values grabbed from the form into the table
-        with sqlite3.connect("miniproject3/productdb.db") as con:
+        with sqlite3.connect("productdb.db") as con:
             con.executemany("INSERT INTO product VALUES (?,?,?,?)", to_insert)
     
     # if an exception is thrown (i.e. an integrity issue), the error() function (above) is called 
@@ -89,7 +86,7 @@ def list():
     catdes = request.form.get("category").strip()
 
     # connecting to the sqlite3 db
-    with sqlite3.connect("miniproject3/productdb.db") as con:
+    with sqlite3.connect("productdb.db") as con:
 
         # if structure to determine what to display
         # if the user leaves the category selection input box blank, the entire product table will be displayed
